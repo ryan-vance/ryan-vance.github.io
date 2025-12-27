@@ -127,13 +127,41 @@
             animation: slideInLeft 0.8s ease-out;
         }
 
+        .availability-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--success);
+            animation: slideInLeft 0.8s ease-out 0.15s both;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
         @keyframes slideInLeft {
             from { opacity: 0; transform: translateX(-30px); }
             to { opacity: 1; transform: translateX(0); }
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(3.5rem, 10vw, 7rem);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -525,6 +553,10 @@
         <div class="hero-content">
             <span class="hero-label">Electrical Engineering Student</span>
             <h1>Ryan Vance</h1>
+            <div class="availability-status">
+                <span class="status-dot"></span>
+                Available May 2026
+            </div>
             <p class="hero-subtitle">Building systems that solve real problems</p>
             <p class="hero-description">
                 Electrical engineering student at Western Illinois University with hands-on experience in embedded systems, 
@@ -547,9 +579,9 @@
             </div>
 
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="https://github.com/ryan-vance" target="_blank" class="btn btn-secondary">GitHub</a>
-                <a href="#contact" class="btn btn-secondary">Contact</a>
+                <a href="#projects" class="btn btn-primary">See My Work →</a>
+                <a href="https://github.com/ryan-vance" target="_blank" class="btn btn-secondary">View GitHub</a>
+                <a href="#contact" class="btn btn-secondary">Let's Connect</a>
             </div>
         </div>
     </section>
