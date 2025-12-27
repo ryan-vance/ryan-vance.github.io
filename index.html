@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Vance - Engineering Portfolio</title>
+    <title>Ryan Vance | Electrical Engineering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #0A0E27;
-            --secondary: #1A1F3A;
-            --accent: #00D9FF;
-            --accent-warm: #FF6B35;
-            --text: #E8E9ED;
-            --text-dim: #9BA3B4;
-            --grid: rgba(0, 217, 255, 0.1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #0a0e12;
+            --bg-secondary: #111820;
+            --bg-card: #1a2332;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #0099cc;
+            --text-primary: #e8eef5;
+            --text-secondary: #9eaab8;
+            --border-subtle: #2a3544;
+            --success: #00ff88;
+            --warning: #ffaa00;
+        }
+
         body {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--primary);
-            color: var(--text);
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Animated grid background */
+        /* Animated background grid */
         body::before {
             content: '';
             position: fixed;
@@ -41,12 +44,11 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(var(--grid) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
+            z-index: -1;
             animation: gridMove 20s linear infinite;
-            pointer-events: none;
-            z-index: 0;
         }
 
         @keyframes gridMove {
@@ -54,227 +56,226 @@
             100% { transform: translate(50px, 50px); }
         }
 
-        /* Glow effect */
-        .glow {
+        /* Navigation */
+        nav {
             position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 1;
-            animation: float 8s ease-in-out infinite;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            padding: 1rem 2rem;
         }
 
-        .glow:nth-child(2) {
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-            animation-delay: -4s;
-            animation-duration: 12s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(10vw, 10vh); }
-            50% { transform: translate(80vw, 70vh); }
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
+        .nav-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
-        header {
-            padding: 2rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-        }
-
-        nav {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-primary);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        nav a:hover {
-            color: var(--accent);
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 400;
         }
 
-        nav a:hover::after {
-            width: 100%;
+        .nav-links a:hover {
+            color: var(--accent-primary);
         }
 
         /* Hero Section */
         .hero {
-            padding: 8rem 0 6rem;
-            animation: fadeIn 1s ease-out 0.3s both;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-content {
+            max-width: 900px;
+            text-align: left;
         }
 
-        .hero-tag {
-            display: inline-block;
-            color: var(--accent);
+        .hero-label {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            font-weight: 600;
+            color: var(--accent-primary);
             text-transform: uppercase;
             letter-spacing: 0.15em;
             margin-bottom: 1.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--accent);
-            border-radius: 2px;
+            display: inline-block;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 800;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: slideInLeft 0.8s ease-out 0.1s both;
         }
 
-        .hero p {
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        .hero-description {
             font-size: 1.1rem;
-            color: var(--text-dim);
-            max-width: 600px;
+            color: var(--text-secondary);
             margin-bottom: 3rem;
+            max-width: 700px;
             line-height: 1.8;
+            animation: slideInLeft 0.8s ease-out 0.3s both;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            animation: slideInLeft 0.8s ease-out 0.4s both;
+        }
+
+        .stat-item {
+            border-left: 2px solid var(--accent-primary);
+            padding-left: 1rem;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
+            animation: slideInLeft 0.8s ease-out 0.5s both;
         }
 
         .btn {
             padding: 1rem 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
             border-radius: 4px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-block;
             border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--primary);
+            background: var(--accent-primary);
+            color: var(--bg-primary);
         }
 
         .btn-primary:hover {
-            background: var(--text);
+            background: var(--text-primary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--text);
-            border: 2px solid var(--secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
         }
 
         .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
             transform: translateY(-2px);
         }
 
         /* Projects Section */
         .section {
-            padding: 6rem 0;
-            animation: fadeIn 1s ease-out both;
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-header {
             margin-bottom: 4rem;
         }
 
-        h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             margin-bottom: 1rem;
         }
 
-        .section-subtitle {
-            color: var(--text-dim);
-            font-size: 1.1rem;
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* Project Cards */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
         }
 
         .project-card {
-            background: var(--secondary);
-            border: 1px solid rgba(0, 217, 255, 0.2);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
             border-radius: 8px;
             padding: 2rem;
-            transition: all 0.4s ease;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
@@ -285,403 +286,504 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
         }
 
         .project-card:hover::before {
-            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: start;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1.5rem;
         }
 
-        .project-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(0, 217, 255, 0.2);
-            line-height: 1;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--text-dim);
-            border-radius: 4px;
-            color: var(--text-dim);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(0, 217, 255, 0.1);
-        }
-
-        .project-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-card h3 {
-            font-family: 'Syne', sans-serif;
+        .project-title {
             font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
-        .project-card p {
-            color: var(--text-dim);
+        .project-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-icons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .project-icon {
+            width: 24px;
+            height: 24px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .project-icon:hover {
+            opacity: 1;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
 
-        .tech-tags {
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .tag {
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             padding: 0.4rem 0.8rem;
-            background: rgba(0, 217, 255, 0.1);
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            border-radius: 3px;
-            color: var(--accent);
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--secondary);
-            border-left: 3px solid var(--accent);
-            padding: 2rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-primary);
             border-radius: 4px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
         }
 
-        .skill-category h3 {
-            font-family: 'Syne', sans-serif;
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .metric {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .metric-value {
             font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
+            font-weight: 700;
+            color: var(--success);
+            display: block;
         }
 
-        .skill-category ul {
-            list-style: none;
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
         }
 
-        .skill-category li {
-            padding: 0.5rem 0;
-            color: var(--text-dim);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .skill-category li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
+        .confidential-note {
+            font-size: 0.85rem;
+            color: var(--warning);
+            font-style: italic;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         /* Contact Section */
+        .contact-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 6rem 2rem;
+        }
+
         .contact-content {
-            background: var(--secondary);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 8px;
-            padding: 4rem;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .contact-content h2 {
-            margin-bottom: 1rem;
+        .contact-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
         }
 
-        .contact-content p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .contact-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
         }
 
-        .social-links {
+        .contact-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        .social-link {
-            width: 50px;
-            height: 50px;
+        .contact-link {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border: 2px solid var(--text-dim);
-            border-radius: 50%;
-            color: var(--text-dim);
+            gap: 0.75rem;
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
         }
 
-        .social-link:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3);
+        .contact-link:hover {
+            color: var(--accent-primary);
         }
 
         /* Footer */
         footer {
-            padding: 3rem 0;
+            background: var(--bg-primary);
+            padding: 2rem;
             text-align: center;
-            color: var(--text-dim);
+            color: var(--text-secondary);
             font-size: 0.9rem;
-            border-top: 1px solid var(--secondary);
+            border-top: 1px solid var(--border-subtle);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .hero {
-                padding: 4rem 0 3rem;
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-content {
-                padding: 2rem;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
             }
         }
 
         /* Scroll animations */
-        .animate-on-scroll {
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
-    <div class="glow"></div>
-    <div class="glow"></div>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">RV</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="container">
-        <header>
-            <div class="logo">RV</div>
-            <nav>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Electrical Engineering Student</span>
+            <h1>Ryan Vance</h1>
+            <p class="hero-subtitle">Building systems that solve real problems</p>
+            <p class="hero-description">
+                Electrical engineering student at Western Illinois University with hands-on experience in embedded systems, 
+                control algorithms, and full-stack development. Focused on creating measurable impact through technical solutions.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value">3.9</span>
+                    <span class="stat-label">GPA</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">5+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">50%</span>
+                    <span class="stat-label">Time Saved</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">May '26</span>
+                    <span class="stat-label">Graduating</span>
+                </div>
+            </div>
 
-        <section class="hero">
-            <div class="hero-tag">Electrical Engineering Student</div>
-            <h1>Building Intelligent<br>Systems</h1>
-            <p>Senior electrical engineering student at Western Illinois University specializing in embedded systems, control theory, and mechatronics integration. Passionate about creating intelligent electromechanical systems that bridge hardware and software.</p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects →</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="https://github.com/ryan-vance" target="_blank" class="btn btn-secondary">GitHub</a>
+                <a href="#contact" class="btn btn-secondary">Contact</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="section">
-            <div class="section-header animate-on-scroll">
-                <h2>Featured Projects</h2>
-                <p class="section-subtitle">Capstone projects showcasing electrical design and control systems</p>
-            </div>
+    <section id="projects" class="section">
+        <div class="section-header">
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-description">
+                A selection of academic and professional work demonstrating embedded systems, 
+                control theory, and software engineering capabilities.
+            </p>
+        </div>
 
-            <div class="projects-grid">
-                <div class="project-card animate-on-scroll">
-                    <div class="project-header">
-                        <div class="project-number">01</div>
-                        <div class="project-links">
-                            <a href="https://github.com/ryan-vance/led-chess-board" class="project-link" title="GitHub" target="_blank">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                            </a>
-                            <a href="https://youtu.be/uNnXn8bJfGM" class="project-link" title="Demo Video" target="_blank">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </a>
-                        </div>
+        <div class="projects-grid">
+            <!-- LED Chess Board -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div>
+                        <div class="project-type">Embedded Systems</div>
+                        <h3 class="project-title">LED Chess Board</h3>
                     </div>
-                    <div class="project-content">
-                        <h3>LED Chess Board</h3>
-                        <p>Interactive 8×8 LED chess board with AI opponent. Implemented Micro-Max chess engine on Arduino Mega with multiplexer-controlled LED feedback. Reduced I/O requirements by 69% while maintaining full board control and <5 second move calculation.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Arduino</span>
-                            <span class="tag">C/C++</span>
-                            <span class="tag">Multiplexers</span>
-                            <span class="tag">Binary Encoding</span>
-                            <span class="tag">AI Algorithm</span>
-                            <span class="tag">Circuit Design</span>
-                        </div>
+                    <div class="project-icons">
+                        <a href="https://github.com/ryan-vance/led-chess-board" target="_blank">
+                            <svg class="project-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-header">
-                        <div class="project-number">02</div>
-                        <div class="project-links">
-                            <a href="https://github.com/ryan-vance/ball-balancer" class="project-link" title="GitHub" target="_blank">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                            </a>
-                            <a href="https://youtube.com/shorts/-RZ6nNGylSo?feature=share" class="project-link" title="Demo Video" target="_blank">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </a>
-                        </div>
+                <p class="project-description">
+                    Interactive 8×8 LED chess board with AI opponent. Custom multiplexer control system enables 
+                    64 individual LEDs using only 20 Arduino pins. Full chess engine implementation with visual move feedback.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Multiplexers</span>
+                    <span class="tech-tag">Circuit Design</span>
+                    <span class="tech-tag">Micro-Max</span>
+                </div>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-value">64</span>
+                        <span class="metric-label">LEDs Controlled</span>
                     </div>
-                    <div class="project-content">
-                        <h3>Ball Balancing Robot</h3>
-                        <p>Autonomous ball-balancing robot using 3-RRS parallel manipulator with custom PID controller. Achieved real-time position tracking via resistive touchscreen and maintained equilibrium through dynamic platform tilting. Hand-tuned PID gains for optimal response with minimal overshoot.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Control Systems</span>
-                            <span class="tag">PID Controller</span>
-                            <span class="tag">Inverse Kinematics</span>
-                            <span class="tag">Stepper Motors</span>
-                            <span class="tag">C++</span>
-                            <span class="tag">Real-time Systems</span>
-                        </div>
+                    <div class="metric">
+                        <span class="metric-value">69%</span>
+                        <span class="metric-label">Pin Reduction</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">&lt;10s</span>
+                        <span class="metric-label">AI Response</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="skills" class="section">
-            <div class="section-header animate-on-scroll">
-                <h2>Technical Skills</h2>
-                <p class="section-subtitle">Tools and technologies from coursework and projects</p>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-category animate-on-scroll">
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>C/C++</li>
-                        <li>Python</li>
-                        <li>Arduino</li>
-                        <li>MATLAB</li>
-                        <li>Assembly</li>
-                    </ul>
+            <!-- Ball Balancer -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div>
+                        <div class="project-type">Control Systems</div>
+                        <h3 class="project-title">Ball Balancing Robot</h3>
+                    </div>
+                    <div class="project-icons">
+                        <a href="https://github.com/ryan-vance/ball-balancer" target="_blank">
+                            <svg class="project-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="skill-category animate-on-scroll">
-                    <h3>Embedded Systems</h3>
-                    <ul>
-                        <li>Arduino Mega</li>
-                        <li>Teensy 4.1</li>
-                        <li>Stepper Motor Control</li>
-                        <li>I/O Multiplexing</li>
-                        <li>Sensor Integration</li>
-                    </ul>
+                <p class="project-description">
+                    Autonomous ball-balancing system using 3-RRS parallel manipulator. Custom PID controller with 
+                    hand-tuned gains maintains equilibrium through real-time position tracking and dynamic platform tilting.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Teensy 4.1</span>
+                    <span class="tech-tag">PID Control</span>
+                    <span class="tech-tag">Inverse Kinematics</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Delta Robot</span>
                 </div>
-
-                <div class="skill-category animate-on-scroll">
-                    <h3>Control Systems</h3>
-                    <ul>
-                        <li>PID Control</li>
-                        <li>Feedback Loops</li>
-                        <li>System Modeling</li>
-                        <li>Real-time Control</li>
-                        <li>Stability Analysis</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category animate-on-scroll">
-                    <h3>Engineering Tools</h3>
-                    <ul>
-                        <li>Circuit Design</li>
-                        <li>3D CAD</li>
-                        <li>Version Control (Git)</li>
-                        <li>Technical Documentation</li>
-                        <li>Oscilloscopes & Multimeters</li>
-                    </ul>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-value">50Hz</span>
+                        <span class="metric-label">Control Loop</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">3</span>
+                        <span class="metric-label">Stepper Motors</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">&lt;2s</span>
+                        <span class="metric-label">Convergence</span>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="contact" class="section">
-            <div class="contact-content animate-on-scroll">
-                <h2>Let's Connect</h2>
-                <p>I'm interested in discussing opportunities in embedded systems, robotics, and Electrical engineering. Feel free to reach out about projects, collaborations, or full-time positions!</p>
-                <a href="mailto:your.email@example.com" class="btn btn-primary">Send Email →</a>
-                <div class="social-links">
-                    <a href="https://github.com/ryan-vance" class="social-link" title="GitHub" target="_blank">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ryan-vance-b39363260" class="social-link" title="LinkedIn" target="blank">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                    <a href="mailto:vanceryan54@gmail.com" class="social-link" title="Email">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
+            <!-- Predictive Maintenance System -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div>
+                        <div class="project-type">Senior Design</div>
+                        <h3 class="project-title">Predictive Hoist Maintenance</h3>
+                    </div>
                 </div>
+                <p class="project-description">
+                    IoT-based predictive maintenance system for industrial hoists. Wireless data collection, 
+                    SQL database integration, and Power BI dashboards for real-time health monitoring and failure prediction.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">IoT Sensors</span>
+                    <span class="tech-tag">Wireless Comms</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">Data Analysis</span>
+                </div>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-value">1,000+</span>
+                        <span class="metric-label">Hoists Scalable</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">4</span>
+                        <span class="metric-label">Team Members</span>
+                    </div>
+                </div>
+                <p class="confidential-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    Code confidential - John Deere partnership
+                </p>
             </div>
-        </section>
 
-        <footer>
-            <p>&copy; 2025 Ryan Vance. Built with passion for electrical engineering.</p>
-        </footer>
-    </div>
+            <!-- Diagnostic Tool -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div>
+                        <div class="project-type">Software Engineering</div>
+                        <h3 class="project-title">Diagnostic Tool System</h3>
+                    </div>
+                </div>
+                <p class="project-description">
+                    React-based diagnostic application transforming static troubleshooting documentation into 
+                    interactive session-managed tool. Analyzed 1,000+ support tickets to build intelligent decision trees.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">API Design</span>
+                    <span class="tech-tag">Data Parsing</span>
+                    <span class="tech-tag">UX Design</span>
+                </div>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-value">3 weeks</span>
+                        <span class="metric-label">Development</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">1,000+</span>
+                        <span class="metric-label">Tickets Analyzed</span>
+                    </div>
+                </div>
+                <p class="confidential-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    Code confidential - PCT ebeam internship
+                </p>
+            </div>
+
+            <!-- AI Requirements Tool -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div>
+                        <div class="project-type">AI / Automation</div>
+                        <h3 class="project-title">AI Requirements Reviewer</h3>
+                    </div>
+                </div>
+                <p class="project-description">
+                    AI-powered automation tool streamlining internal engineering review processes. 
+                    Designed for enterprise-scale deployment with focus on quality improvement and efficiency gains.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">AI/ML</span>
+                    <span class="tech-tag">Automation</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Enterprise</span>
+                </div>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-value">50%</span>
+                        <span class="metric-label">Time Reduction</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">✓</span>
+                        <span class="metric-label">Quality ↑</span>
+                    </div>
+                </div>
+                <p class="confidential-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    Code confidential - John Deere employee project
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2 class="contact-title">Let's Connect</h2>
+            <p class="contact-description">
+                Interested in embedded systems, control theory, or full-stack development? 
+                Always open to discussing new opportunities and technical challenges.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:rj-vance@wiu.edu" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    rj-vance@wiu.edu
+                </a>
+                <a href="https://github.com/ryan-vance" target="_blank" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="tel:5632106204" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    (563) 210-6204
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ryan Vance. Built with passion for engineering and problem-solving.</p>
+    </footer>
 
     <script>
         // Smooth scrolling for navigation links
@@ -698,33 +800,22 @@
             });
         });
 
-        // Animate elements on scroll
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Dynamic glow effect that follows mouse
-        document.addEventListener('mousemove', (e) => {
-            const glows = document.querySelectorAll('.glow');
-            const x = e.clientX;
-            const y = e.clientY;
-            
-            glows[0].style.left = `${x - 300}px`;
-            glows[0].style.top = `${y - 300}px`;
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
