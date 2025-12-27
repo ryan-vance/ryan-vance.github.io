@@ -308,6 +308,27 @@
             overflow: hidden;
         }
 
+        .project-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border-color: var(--accent-primary);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         .project-card::before {
             content: '';
             position: absolute;
@@ -359,8 +380,8 @@
         }
 
         .project-icon {
-            width: 48px;
-            height: 48px;
+            width: 24px;
+            height: 24px;
             opacity: 0.6;
             transition: opacity 0.3s;
         }
@@ -370,7 +391,7 @@
         }
 
         .company-logo {
-            height: 54px;
+            height: 32px;
             width: auto;
             opacity: 0.5;
             filter: grayscale(100%) brightness(2);
@@ -506,6 +527,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -598,7 +623,8 @@
 
         <div class="projects-grid">
             <!-- LED Chess Board -->
-            <div class="project-card fade-in">
+            <div class="project-card featured fade-in">
+                <span class="featured-badge">⭐ Featured Project</span>
                 <div class="project-header">
                     <div>
                         <div class="project-type">Embedded Systems</div>
@@ -691,7 +717,7 @@
                         <h3 class="project-title">Predictive Hoist Maintenance</h3>
                     </div>
                     <div class="project-icons">
-                        <img src="John_Deere-Logo.png" alt="John Deere" class="company-logo">
+                        <img src="John_Deere-Logo_wine.png" alt="John Deere" class="company-logo">
                     </div>
                 </div>
                 <p class="project-description">
@@ -771,7 +797,7 @@
                         <h3 class="project-title">AI Requirements Reviewer</h3>
                     </div>
                     <div class="project-icons">
-                        <img src="John_Deere-Logo.png" alt="John Deere" class="company-logo">
+                        <img src="John_Deere-Logo_wine.png" alt="John Deere" class="company-logo">
                     </div>
                 </div>
                 <p class="project-description">
