@@ -15,27 +15,28 @@
         }
 
         :root {
-            --bg-primary: #0a0e12;
-            --bg-secondary: #111820;
-            --bg-card: #1a2332;
+            --bg-primary: #1a2332;
+            --bg-secondary: #111d30;
+            --bg-card: #1a2840;
             --accent-primary: #00d4ff;
             --accent-secondary: #0099cc;
             --text-primary: #e8eef5;
             --text-secondary: #9eaab8;
-            --border-subtle: #2a3544;
+            --border-subtle: #2a3d58;
             --success: #00ff88;
             --warning: #ffaa00;
         }
 
         body {
             font-family: 'Work Sans', sans-serif;
-            background: var(--bg-primary);
+            background: #1a2332;
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Animated background grid */
+        /* Professional PCB Background with realistic routing */
         body::before {
             content: '';
             position: fixed;
@@ -43,17 +44,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            animation: gridMove 20s linear infinite;
+            background: #1a2332;
+            z-index: -2;
         }
 
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2000 1200' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='1.2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='softglow'%3E%3CfeGaussianBlur stdDeviation='0.8' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='2000' height='1200' fill='%231a2332'/%3E%3C!-- Top left IC with complex routing --%3E%3Crect x='180' y='120' width='140' height='140' fill='none' stroke='%23b43cb4' stroke-width='1.5' opacity='0.12'/%3E%3Crect x='175' y='135' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='150' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='165' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='180' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='195' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='210' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='225' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='175' y='240' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='135' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='150' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='165' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='180' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='195' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='210' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='225' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='313' y='240' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Cpath d='M 187 138 L 350 138 L 350 300' stroke='%23d63c3c' stroke-width='7' fill='none' opacity='0.22' filter='url(%23glow)'/%3E%3Cpath d='M 187 153 L 320 153 L 320 320 L 480 320' stroke='%234a8cd6' stroke-width='6' fill='none' opacity='0.2' filter='url(%23glow)'/%3E%3Cpath d='M 187 168 L 280 168 L 280 380 L 500 380' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.18' filter='url(%23softglow)'/%3E%3Cpath d='M 187 183 L 260 183 L 260 400 L 500 400' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.17' filter='url(%23softglow)'/%3E%3Cpath d='M 187 198 L 240 198 L 240 420 L 500 420' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.16' filter='url(%23softglow)'/%3E%3Crect x='1650' y='120' width='140' height='140' fill='none' stroke='%23b43cb4' stroke-width='1.5' opacity='0.12'/%3E%3Crect x='1645' y='135' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1645' y='150' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1645' y='165' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1645' y='180' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1645' y='195' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1645' y='210' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1783' y='135' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1783' y='150' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1783' y='165' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Crect x='1783' y='180' width='12' height='6' fill='%23c87832' opacity='0.25' rx='1'/%3E%3Cpath d='M 1795 138 L 1620 138 L 1620 350 L 1500 350' stroke='%23d63c3c' stroke-width='7' fill='none' opacity='0.21' filter='url(%23glow)'/%3E%3Cpath d='M 1795 153 L 1600 153 L 1600 450 L 1400 450' stroke='%234a8cd6' stroke-width='6' fill='none' opacity='0.19' filter='url(%23glow)'/%3E%3Cpath d='M 1795 168 L 1580 168 L 1580 500 L 1300 500' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.18' filter='url(%23softglow)'/%3E%3Crect x='200' y='920' width='100' height='100' fill='none' stroke='%23b43cb4' stroke-width='1.5' opacity='0.12'/%3E%3Crect x='195' y='935' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Crect x='195' y='950' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Crect x='195' y='965' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Crect x='195' y='980' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Crect x='293' y='935' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Crect x='293' y='950' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Crect x='293' y='965' width='12' height='6' fill='%23c87832' opacity='0.24' rx='1'/%3E%3Cpath d='M 207 935 L 207 700 L 380 700 L 380 500' stroke='%23d63c3c' stroke-width='6' fill='none' opacity='0.2' filter='url(%23glow)'/%3E%3Cpath d='M 305 938 L 420 938 L 420 650 L 600 650' stroke='%234a8cd6' stroke-width='5' fill='none' opacity='0.19' filter='url(%23glow)'/%3E%3Crect x='880' y='480' width='180' height='180' fill='none' stroke='%23b43cb4' stroke-width='2' opacity='0.14'/%3E%3Crect x='872' y='500' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='872' y='520' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='872' y='540' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='872' y='560' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='872' y='580' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='872' y='600' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='872' y='620' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='1053' y='500' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='1053' y='520' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='1053' y='540' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='1053' y='560' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='1053' y='580' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Crect x='1053' y='600' width='15' height='7' fill='%23c87832' opacity='0.26' rx='1'/%3E%3Cpath d='M 500 380 L 780 380 L 780 503 L 872 503' stroke='%23d63c3c' stroke-width='6' fill='none' opacity='0.21' filter='url(%23glow)'/%3E%3Cpath d='M 480 320 L 750 320 L 750 523 L 872 523' stroke='%234a8cd6' stroke-width='5' fill='none' opacity='0.2' filter='url(%23glow)'/%3E%3Cpath d='M 500 400 L 820 400 L 820 543 L 872 543' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.18' filter='url(%23softglow)'/%3E%3Cpath d='M 500 420 L 840 420 L 840 563 L 872 563' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.17' filter='url(%23softglow)'/%3E%3Cpath d='M 1068 503 L 1200 503 L 1200 350 L 1400 350' stroke='%23d63c3c' stroke-width='6' fill='none' opacity='0.2' filter='url(%23glow)'/%3E%3Cpath d='M 1068 523 L 1220 523 L 1220 420 L 1350 420' stroke='%234a8cd6' stroke-width='5' fill='none' opacity='0.19' filter='url(%23glow)'/%3E%3Cpath d='M 1068 543 L 1180 543 L 1180 500 L 1300 500' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.18' filter='url(%23softglow)'/%3E%3Cpath d='M 1068 563 L 1160 563 L 1160 580 L 1280 580' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.17' filter='url(%23softglow)'/%3E%3Crect x='850' y='440' width='20' height='15' fill='none' stroke='%23b43cb4' stroke-width='1' opacity='0.1'/%3E%3Crect x='845' y='443' width='8' height='4' fill='%23c87832' opacity='0.22' rx='0.5'/%3E%3Crect x='867' y='443' width='8' height='4' fill='%23c87832' opacity='0.22' rx='0.5'/%3E%3Crect x='1070' y='440' width='20' height='15' fill='none' stroke='%23b43cb4' stroke-width='1' opacity='0.1'/%3E%3Crect x='1065' y='443' width='8' height='4' fill='%23c87832' opacity='0.22' rx='0.5'/%3E%3Crect x='1087' y='443' width='8' height='4' fill='%23c87832' opacity='0.22' rx='0.5'/%3E%3Cpath d='M 872 503 L 853 503 L 853 447' stroke='%23d63c3c' stroke-width='3' fill='none' opacity='0.18' filter='url(%23softglow)'/%3E%3Cpath d='M 872 523 L 860 523 L 860 460 L 871 460 L 871 447' stroke='%234a8cd6' stroke-width='3' fill='none' opacity='0.17' filter='url(%23softglow)'/%3E%3Cpath d='M 1068 503 L 1073 503 L 1073 447' stroke='%23d63c3c' stroke-width='3' fill='none' opacity='0.18' filter='url(%23softglow)'/%3E%3Crect x='1600' y='900' width='80' height='80' fill='none' stroke='%23b43cb4' stroke-width='1.5' opacity='0.11'/%3E%3Crect x='1595' y='915' width='10' height='5' fill='%23c87832' opacity='0.23' rx='1'/%3E%3Crect x='1595' y='930' width='10' height='5' fill='%23c87832' opacity='0.23' rx='1'/%3E%3Crect x='1595' y='945' width='10' height='5' fill='%23c87832' opacity='0.23' rx='1'/%3E%3Crect x='1675' y='915' width='10' height='5' fill='%23c87832' opacity='0.23' rx='1'/%3E%3Crect x='1675' y='930' width='10' height='5' fill='%23c87832' opacity='0.23' rx='1'/%3E%3Cpath d='M 1400 450 L 1550 450 L 1550 918 L 1595 918' stroke='%234a8cd6' stroke-width='5' fill='none' opacity='0.18' filter='url(%23glow)'/%3E%3Cpath d='M 1280 580 L 1520 580 L 1520 933 L 1595 933' stroke='%2328b4dc' stroke-width='3' fill='none' opacity='0.17' filter='url(%23softglow)'/%3E%3Ccircle cx='350' cy='300' r='4.5' fill='%23ffc83c' opacity='0.4'/%3E%3Ccircle cx='350' cy='300' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.2'/%3E%3Ccircle cx='480' cy='320' r='4.5' fill='%23ffc83c' opacity='0.39'/%3E%3Ccircle cx='480' cy='320' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.19'/%3E%3Ccircle cx='500' cy='380' r='4.5' fill='%23ffc83c' opacity='0.4'/%3E%3Ccircle cx='500' cy='380' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.2'/%3E%3Ccircle cx='780' cy='380' r='4.5' fill='%23ffc83c' opacity='0.38'/%3E%3Ccircle cx='780' cy='380' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.18'/%3E%3Ccircle cx='1200' cy='350' r='4.5' fill='%23ffc83c' opacity='0.39'/%3E%3Ccircle cx='1200' cy='350' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.19'/%3E%3Ccircle cx='1400' cy='350' r='4.5' fill='%23ffc83c' opacity='0.38'/%3E%3Ccircle cx='1400' cy='350' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.18'/%3E%3Ccircle cx='1620' cy='350' r='4.5' fill='%23ffc83c' opacity='0.37'/%3E%3Ccircle cx='1620' cy='350' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.17'/%3E%3Ccircle cx='600' cy='650' r='4.5' fill='%23ffc83c' opacity='0.37'/%3E%3Ccircle cx='600' cy='650' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.17'/%3E%3Ccircle cx='1550' cy='450' r='4.5' fill='%23ffc83c' opacity='0.36'/%3E%3Ccircle cx='1550' cy='450' r='7' fill='none' stroke='%23ffc83c' stroke-width='1.2' opacity='0.16'/%3E%3Cg opacity='0.04'%3E%3Cpath d='M 0 0 L 2000 0 L 2000 20 L 0 20 Z M 0 40 L 2000 40 L 2000 60 L 0 60 Z M 0 80 L 2000 80 L 2000 100 L 0 100 Z' fill='%234a8cd6'/%3E%3C/g%3E%3Ctext x='190' y='110' font-family='monospace' font-size='11' fill='%23b43cb4' opacity='0.15'%3EU1%3C/text%3E%3Ctext x='890' y='470' font-family='monospace' font-size='12' fill='%23b43cb4' opacity='0.16'%3EU2%3C/text%3E%3Ctext x='1660' y='110' font-family='monospace' font-size='11' fill='%23b43cb4' opacity='0.15'%3EU3%3C/text%3E%3Ctext x='210' y='910' font-family='monospace' font-size='10' fill='%23b43cb4' opacity='0.14'%3EU4%3C/text%3E%3Ctext x='855' y='435' font-family='monospace' font-size='8' fill='%23b43cb4' opacity='0.12'%3EC1%3C/text%3E%3Ctext x='1075' y='435' font-family='monospace' font-size='8' fill='%23b43cb4' opacity='0.12'%3EC2%3C/text%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            opacity: 0.95;
         }
 
         /* Navigation */
@@ -61,7 +68,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 18, 0.95);
+            background: rgba(26, 35, 50, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-subtle);
             z-index: 1000;
@@ -109,11 +116,38 @@
             align-items: center;
             justify-content: center;
             padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
         }
 
         .hero-content {
             max-width: 900px;
             text-align: left;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-label {
@@ -183,10 +217,35 @@
         .hero-description {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             max-width: 700px;
             line-height: 1.8;
             animation: slideInLeft 0.8s ease-out 0.3s both;
+        }
+
+        .personality-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            animation: slideInLeft 0.8s ease-out 0.35s both;
+        }
+
+        .personality-tag {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .personality-tag:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
         }
 
         .stats-grid {
@@ -306,12 +365,14 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .project-card.featured {
             grid-column: span 2;
             background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 212, 255, 0.05) 100%);
             border-color: var(--accent-primary);
+            box-shadow: 0 8px 16px rgba(0, 212, 255, 0.15);
         }
 
         .featured-badge {
@@ -349,7 +410,7 @@
         .project-card:hover {
             border-color: var(--accent-primary);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 212, 255, 0.2);
         }
 
         .project-header {
@@ -461,30 +522,32 @@
             gap: 0.5rem;
             position: relative;
             cursor: help;
+            user-select: none;
+        }
+
+        .confidential-note .tooltip {
+            position: absolute;
+            bottom: calc(100% + 0.5rem);
+            left: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 6px;
+            padding: 1rem;
+            width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
         }
 
         .confidential-note:hover .tooltip {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
-        }
-
-        .tooltip {
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-            background: var(--bg-secondary);
-            border: 1px solid var(--accent-primary);
-            border-radius: 6px;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            width: 280px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
         }
 
         .tooltip::after {
@@ -494,6 +557,7 @@
             left: 20px;
             border: 8px solid transparent;
             border-top-color: var(--accent-primary);
+            margin-top: -1px;
         }
 
         .tooltip-title {
@@ -638,6 +702,13 @@
                 Electrical engineering student at Western Illinois University with hands-on experience in embedded systems, 
                 control algorithms, and full-stack development. Focused on creating measurable impact through technical solutions.
             </p>
+
+            <div class="personality-tags">
+                <span class="personality-tag">⚡ Eagle Scout</span>
+                <span class="personality-tag">♟️ Chess Enthusiast</span>
+                <span class="personality-tag">☕ Coffee → Code</span>
+                <span class="personality-tag">🌽 Midwest Engineer</span>
+            </div>
             
             <div class="stats-grid">
                 <div class="stat-item">
@@ -768,7 +839,7 @@
                         <h3 class="project-title">Predictive Hoist Maintenance</h3>
                     </div>
                     <div class="project-icons">
-                        <img src="John_Deere-Logo.png" alt="John Deere" class="company-logo">
+                        <img src="John_Deere-Logo_wine.png" alt="John Deere" class="company-logo">
                     </div>
                 </div>
                 <p class="project-description">
@@ -868,7 +939,7 @@
                         <h3 class="project-title">AI Requirements Reviewer</h3>
                     </div>
                     <div class="project-icons">
-                        <img src="John_Deere-Logo.png" alt="John Deere" class="company-logo">
+                        <img src="John_Deere-Logo_wine.png" alt="John Deere" class="company-logo">
                     </div>
                 </div>
                 <p class="project-description">
@@ -919,11 +990,11 @@
                 Always open to discussing new opportunities and technical challenges.
             </p>
             <div class="contact-links">
-                <a href="/cdn-cgi/l/email-protection#01736b2c77606f6264417668742f646574" class="contact-link">
+                <a href="mailto:ryan@example.com" class="contact-link">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
-                    <span class="__cf_email__" data-cfemail="186a72356e79767b7d586f716d367d7c6d">[email&#160;protected]</span>
+                    ryan@example.com
                 </a>
                 <a href="https://github.com/ryan-vance" target="_blank" class="contact-link">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -945,7 +1016,7 @@
         <p>&copy; 2025 Ryan Vance. Built with passion for engineering and problem-solving.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -970,3 +1041,12 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
