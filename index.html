@@ -459,6 +459,57 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
+            cursor: help;
+        }
+
+        .confidential-note:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            border: 8px solid transparent;
+            border-top-color: var(--accent-primary);
+        }
+
+        .tooltip-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .tooltip-content {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: normal;
         }
 
         /* Contact Section */
@@ -717,7 +768,7 @@
                         <h3 class="project-title">Predictive Hoist Maintenance</h3>
                     </div>
                     <div class="project-icons">
-                        <img src="John_Deere-Logo_wine.png" alt="John Deere" class="company-logo">
+                        <img src="John_Deere-Logo.png" alt="John Deere" class="company-logo">
                     </div>
                 </div>
                 <p class="project-description">
@@ -746,6 +797,16 @@
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                     </svg>
                     Code confidential - John Deere partnership
+                    <span class="tooltip">
+                        <div class="tooltip-title">What I Can Discuss:</div>
+                        <div class="tooltip-content">
+                            • System architecture & design decisions<br>
+                            • Wireless communication protocols<br>
+                            • Database design approach<br>
+                            • IoT sensor integration process<br>
+                            • Dashboard visualization strategy
+                        </div>
+                    </span>
                 </p>
             </div>
 
@@ -786,6 +847,16 @@
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                     </svg>
                     Code confidential - PCT ebeam internship
+                    <span class="tooltip">
+                        <div class="tooltip-title">What I Can Discuss:</div>
+                        <div class="tooltip-content">
+                            • React component architecture<br>
+                            • State management approach<br>
+                            • Data parsing methodology<br>
+                            • Decision tree logic design<br>
+                            • 3-week development sprint process
+                        </div>
+                    </span>
                 </p>
             </div>
 
@@ -797,7 +868,7 @@
                         <h3 class="project-title">AI Requirements Reviewer</h3>
                     </div>
                     <div class="project-icons">
-                        <img src="John_Deere-Logo_wine.png" alt="John Deere" class="company-logo">
+                        <img src="John_Deere-Logo.png" alt="John Deere" class="company-logo">
                     </div>
                 </div>
                 <p class="project-description">
@@ -825,6 +896,16 @@
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                     </svg>
                     Code confidential - John Deere employee project
+                    <span class="tooltip">
+                        <div class="tooltip-title">What I Can Discuss:</div>
+                        <div class="tooltip-content">
+                            • AI/ML integration strategy<br>
+                            • Automation workflow design<br>
+                            • Quality improvement metrics<br>
+                            • Enterprise scalability approach<br>
+                            • Python development process
+                        </div>
+                    </span>
                 </p>
             </div>
         </div>
