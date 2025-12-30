@@ -21,7 +21,7 @@
             --accent-primary: #00d4ff;
             --accent-secondary: #0099cc;
             --text-primary: #e8eef5;
-            --text-secondary: #9eaab8;
+            --text-secondary: #a8b4c2;
             --border-subtle: #2a3544;
             --success: #00ff88;
             --warning: #ffaa00;
@@ -187,6 +187,10 @@
             text-align: left;
             position: relative;
             z-index: 1;
+            background: rgba(10, 14, 18, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(2px);
         }
 
         .hero-label {
@@ -247,6 +251,7 @@
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             font-weight: 300;
@@ -255,6 +260,7 @@
 
         .hero-description {
             font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             max-width: 700px;
