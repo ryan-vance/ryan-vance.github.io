@@ -21,7 +21,7 @@
             --accent-primary: #00d4ff;
             --accent-secondary: #0099cc;
             --text-primary: #e8eef5;
-            --text-secondary: #9eaab8;
+            --text-secondary: #a8b4c2;
             --border-subtle: #2a3544;
             --success: #00ff88;
             --warning: #ffaa00;
@@ -36,7 +36,7 @@
         }
 
         /* Custom PCB circuit board background - SVG based */
-        /* IMPORTANT: Replace [YOUR_PCB_SVG_HERE] with your actual PCB SVG data URL */
+        /* IMPORTANT: Replace with your actual PCB SVG data URL */
         body::before {
             content: '';
             position: fixed;
@@ -187,6 +187,10 @@
             text-align: left;
             position: relative;
             z-index: 1;
+            background: rgba(10, 14, 18, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(2px);
         }
 
         .hero-label {
@@ -247,6 +251,7 @@
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             font-weight: 300;
@@ -255,6 +260,7 @@
 
         .hero-description {
             font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             max-width: 700px;
@@ -392,7 +398,7 @@
         /* Project Cards */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
             gap: 2rem;
         }
 
@@ -585,7 +591,7 @@
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -699,16 +705,14 @@
             border-top: 1px solid var(--border-subtle);
         }
 
-        /* Responsive */
-        
-        /* Small phones - 480px and below */
+        /* Responsive - MOBILE FIXES ONLY */
         @media (max-width: 480px) {
             nav {
                 padding: 0.75rem 1rem;
             }
             
             .nav-links {
-                gap: 0.5rem;
+                gap: 0.6rem;
                 font-size: 0.75rem;
             }
             
@@ -720,49 +724,16 @@
                 padding: 1.5rem;
             }
             
-            h1 {
-                font-size: clamp(2.5rem, 12vw, 4rem) !important;
-            }
-            
-            .personality-tags {
-                gap: 0.5rem;
-            }
-            
-            .personality-tag {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
             .stats-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-            
             .company-logo {
-                height: 30px;
-            }
-            
-            .section {
-                padding: 3rem 1rem;
-            }
-            
-            .projects-grid,
-            .skills-grid {
-                gap: 1.5rem;
+                height: 28px;
             }
         }
-        
-        /* Tablets and larger phones - 481px to 768px */
+
         @media (max-width: 768px) {
             .nav-links {
                 gap: 1rem;
