@@ -1,0 +1,373 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='2000' height='1400' viewBox='0 0 2000 1400'>
+<defs>
+<!-- Glow filter for copper traces -->
+<filter id='copperGlow' x='-20%' y='-20%' width='140%' height='140%'>
+<feGaussianBlur stdDeviation='1' result='blur'/>
+<feMerge>
+<feMergeNode in='blur'/>
+<feMergeNode in='SourceGraphic'/>
+</feMerge>
+</filter>
+<!-- Pattern for ground plane hatch -->
+<pattern id='groundHatch' patternUnits='userSpaceOnUse' width='8' height='8'>
+<path d='M0,0 l8,8 M-2,6 l4,4 M6,-2 l4,4' stroke='#162a45' stroke-width='0.5' opacity='0.4'/>
+</pattern>
+<!-- Via gradient -->
+<radialGradient id='viaGrad' cx='50%' cy='50%' r='50%'>
+<stop offset='0%' stop-color='#0a1628'/>
+<stop offset='40%' stop-color='#0a1628'/>
+<stop offset='50%' stop-color='#c9a227'/>
+<stop offset='100%' stop-color='#a8860d'/>
+</radialGradient>
+</defs>
+
+<!-- Base PCB substrate -->
+<rect width='2000' height='1400' fill='#0a1628'/>
+
+<!-- Ground plane areas with cross-hatch -->
+<rect x='50' y='50' width='350' height='280' fill='url(#groundHatch)' opacity='0.3'/>
+<rect x='1550' y='80' width='380' height='300' fill='url(#groundHatch)' opacity='0.25'/>
+<rect x='950' y='900' width='400' height='350' fill='url(#groundHatch)' opacity='0.2'/>
+
+<!-- ==================== TOP LEFT IC (U1) ==================== -->
+<!-- IC Body -->
+<rect x='120' y='120' width='100' height='100' fill='#0d1a2d' stroke='#1a3352' stroke-width='1'/>
+<text x='170' y='175' font-family='monospace' font-size='10' fill='#1a3352' text-anchor='middle'>U1</text>
+<!-- Pin 1 marker -->
+<circle cx='130' cy='130' r='4' fill='none' stroke='#1a3352' stroke-width='0.5'/>
+
+<!-- Left side pads (pins 1-4) -->
+<rect x='108' y='130' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='108' y='150' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='108' y='170' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='108' y='190' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- Right side pads (pins 5-8) -->
+<rect x='218' y='130' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='218' y='150' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='218' y='170' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='218' y='190' width='14' height='6' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- Traces from U1 - cleaned up routing -->
+<!-- Pin 1 signal trace -->
+<path d='M 122 133 L 80 133 L 80 300 L 125 345 L 300 345' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+<circle cx='300' cy='345' r='5' fill='url(#viaGrad)'/>
+<circle cx='300' cy='345' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Pin 2 signal trace -->
+<path d='M 122 153 L 70 153 L 70 380 L 115 425 L 320 425' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.22' filter='url(#copperGlow)'/>
+<circle cx='320' cy='425' r='5' fill='url(#viaGrad)'/>
+<circle cx='320' cy='425' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Pin 3 - VCC power trace (thicker) -->
+<path d='M 122 173 L 60 173 L 60 50' stroke='#ff6b6b' stroke-width='3' fill='none' opacity='0.3' filter='url(#copperGlow)'/>
+
+<!-- Pin 4 - GND -->
+<path d='M 122 193 L 90 193 L 90 260' stroke='#00d4ff' stroke-width='2.5' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+
+<!-- Pin 5 output trace -->
+<path d='M 232 133 L 280 133 L 325 178 L 325 280 L 370 325 L 500 325' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+<circle cx='500' cy='325' r='5' fill='url(#viaGrad)'/>
+<circle cx='500' cy='325' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Pin 6 output trace -->
+<path d='M 232 153 L 320 153 L 365 198 L 540 198' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.22' filter='url(#copperGlow)'/>
+<circle cx='540' cy='198' r='4' fill='url(#viaGrad)'/>
+<circle cx='540' cy='198' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Pin 7 control signal -->
+<path d='M 232 173 L 270 173 L 315 218 L 560 218' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='720' cy='218' r='4' fill='url(#viaGrad)'/>
+<circle cx='720' cy='218' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Pin 8 - local GND connection -->
+<path d='M 232 193 L 260 193 L 260 242 L 90 242 L 90 193' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+
+<!-- ==================== DECOUPLING CAPACITOR C1 near U1 ==================== -->
+<rect x='255' y='224' width='10' height='20' fill='#0d1a2d' stroke='#1a3352' stroke-width='0.5'/>
+<rect x='257' y='223' width='6' height='6' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<rect x='257' y='240' width='6' height='6' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<text x='260' y='221' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>C1</text>
+<!-- C1 power connection -->
+<path d='M 260 226 60 226 L 60 50' stroke='#ff6b6b' stroke-width='1.5' fill='none' opacity='0.2'/>
+<!-- C1 GND connection -->
+<path d='M 260 241 L 260 260 L 90 260 L 90 820' stroke='#00d4ff' stroke-width='1.5' fill='none' opacity='0.2'/>
+
+<!-- ==================== CENTER MAIN IC (U2) - MOVED 150px RIGHT ==================== -->
+<!-- Large QFP-style IC -->
+<rect x='900' y='480' width='160' height='160' fill='#0d1a2d' stroke='#1a3352' stroke-width='1.5'/>
+<text x='980' y='565' font-family='monospace' font-size='12' fill='#1a3352' text-anchor='middle'>U2</text>
+<!-- Pin 1 marker -->
+<circle cx='912' cy='492' r='5' fill='none' stroke='#1a3352' stroke-width='0.5'/>
+
+<!-- Left side pads -->
+<rect x='885' y='500' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='885' y='520' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='885' y='540' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='885' y='560' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='885' y='580' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='885' y='600' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- Right side pads -->
+<rect x='1058' y='500' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1058' y='520' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1058' y='540' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1058' y='560' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1058' y='580' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1058' y='600' width='17' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- Top side pads -->
+<rect x='930' y='463' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='950' y='463' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='970' y='463' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='990' y='463' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1010' y='463' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1030' y='463' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- Bottom side pads -->
+<rect x='930' y='640' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='950' y='640' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='970' y='640' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='990' y='640' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1010' y='640' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1030' y='640' width='5' height='17' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- U2 Input traces from U1 - cleaned up routing -->
+<!-- Input from U1 Pin 5 -->
+<path d='M 500 325 L 650 325 L 695 370 L 695 502 L 885 502' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+<circle cx='650' cy='325' r='4' fill='url(#viaGrad)'/>
+<circle cx='650' cy='325' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Input from U1 Pin 6 -->
+<path d='M 540 198 L 720 198 L 765 243 L 765 522 L 885 522' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.22' filter='url(#copperGlow)'/>
+<circle cx='720' cy='198' r='4' fill='url(#viaGrad)'/>
+<circle cx='720' cy='198' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Input from U1 Pin 7 (control signal) -->
+<path d='M 560 218 L 765 218 L 785 238 L 785 542 L 885 542' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='765' cy='218' r='4' fill='url(#viaGrad)'/>
+<circle cx='765' cy='218' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Input from U1 Pin 1 -->
+<path d='M 300 345 L 650 345 L 685 380 L 805 380 L 805 562 L 885 562' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='650' cy='345' r='4' fill='url(#viaGrad)'/>
+<circle cx='650' cy='345' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Input from U1 Pin 2 -->
+<path d='M 320 425 L 680 425 L 725 470 L 825 470 L 825 582 L 885 582' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+<circle cx='680' cy='425' r='4' fill='url(#viaGrad)'/>
+<circle cx='680' cy='425' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- U2 Power traces (top) with proper routing -->
+<path d='M 932 463 L 932 390 M 50 390 L 1950 390' stroke='#ff6b6b' stroke-width='3' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+<path d='M 952 463 L 952 390' stroke='#ff6b6b' stroke-width='3' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+
+<!-- U2 Output traces (right side) - cleaner routing -->
+<!-- Output 1 to U3 -->
+<path d='M 1075 502 L 1180 502 L 1225 457 L 1300 457 L 1345 412 L 1480 412 L 1480 257' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.25' filter='url(#copperGlow)'/>
+<circle cx='1180' cy='502' r='5' fill='url(#viaGrad)'/>
+<circle cx='1180' cy='502' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+<circle cx='1480' cy='412' r='4' fill='url(#viaGrad)'/>
+<circle cx='1480' cy='412' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Output 2 to U3 -->
+<path d='M 1075 522 L 1200 522 L 1245 477 L 1320 477 L 1365 432 L 1460 432 L 1460 277' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.22' filter='url(#copperGlow)'/>
+<circle cx='1200' cy='522' r='5' fill='url(#viaGrad)'/>
+<circle cx='1200' cy='522' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+<circle cx='1460' cy='432' r='4' fill='url(#viaGrad)'/>
+<circle cx='1460' cy='432' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Output 3 to Connector -->
+<path d='M 1075 542 L 1220 542 L 1265 497 L 1400 497 L 1445 452 L 1650 452 L 1695 497 L 1750 497 L 1780 524 L 1860 524' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='1220' cy='542' r='4' fill='url(#viaGrad)'/>
+<circle cx='1220' cy='542' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Output 4 to Connector -->
+<path d='M 1075 562 L 1240 562 L 1285 517 L 1420 517 L 1465 472 L 1650 472 L 1695 517 L 1749 517 L 1790 554 L 1860 554' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+<circle cx='1240' cy='562' r='4' fill='url(#viaGrad)'/>
+<circle cx='1240' cy='562' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Output 5 to U5 -->
+<path d='M 1075 582 L 1260 582 L 1305 627 L 1400 627 L 1445 672 L 1500 672 L 1545 717 L 1586 717 L 1586 997' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='1260' cy='582' r='5' fill='url(#viaGrad)'/>
+<circle cx='1260' cy='582' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Output 6 to U5 -->
+<path d='M 1075 602 L 1670 602 L 1720 655 L 1720 1018 L 1710 1018' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+<circle cx='1280' cy='602' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- U2 Bottom traces - cleaned up -->
+<path d='M 932 657 L 932 720 L 887 765 L 650 765' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='650' cy='765' r='5' fill='url(#viaGrad)'/>
+<circle cx='650' cy='765' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<path d='M 952 657 L 952 700 L 997 745 L 1100 745' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<circle cx='1100' cy='745' r='5' fill='url(#viaGrad)'/>
+<circle cx='1100' cy='745' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- ==================== DECOUPLING CAPS around U2 (repositioned) ==================== -->
+<!-- C2 top left of U2 -->
+<rect x='850' y='425' width='12' height='24' fill='#0d1a2d' stroke='#1a3352' stroke-width='0.5'/>
+<rect x='853' y='423' width='6' height='7' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<rect x='853' y='444' width='6' height='7' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<text x='862' y='439' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>C2</text>
+<path d='M 856 423 L 856 390 M 50 390 L 50 173 L 70 173' stroke='#ff6b6b' stroke-width='3' fill='none' opacity='0.3'/>
+<path d='M 859 451 L 859 450 L 90 450 L 90 400' stroke='#00d4ff' stroke-width='1.5' fill='none' opacity='0.18'/>
+
+<!-- C3 top right of U2 -->
+<rect x='990' y='420' width='24' height='12' fill='#0d1a2d' stroke='#1a3352' stroke-width='0.5'/>
+<rect x='988' y='423' width='7' height='6' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<rect x='1009' y='423' width='7' height='6' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<text x='1002' y='416' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>C3</text>
+<path d='M 994 423 L 994 425 L 952 425 L 952 463' stroke='#ff6b6b' stroke-width='1.5' fill='none' opacity='0.2'/>
+<path d='M 1014 465 L 1014 423 L 1014 450 L 90 450' stroke='#00d4ff' stroke-width='1.5' fill='none' opacity='0.18'/>
+
+<!-- ==================== TOP RIGHT IC (U3) ==================== -->
+<rect x='1550' y='150' width='120' height='80' fill='#0d1a2d' stroke='#1a3352' stroke-width='1'/>
+<text x='1610' y='195' font-family='monospace' font-size='10' fill='#1a3352' text-anchor='middle'>U3</text>
+<circle cx='1562' cy='162' r='4' fill='none' stroke='#1a3352' stroke-width='0.5'/>
+
+<!-- U3 pads -->
+<rect x='1536' y='165' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1536' y='185' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1536' y='205' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1668' y='165' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1668' y='185' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1668' y='205' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- Traces to U3 (from U2) -->
+<path d='M 1480 257 L 1480 167 L 1536 167' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.22' filter='url(#copperGlow)'/>
+<path d='M 1460 277 L 1460 187 L 1536 187' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+
+<!-- Traces from U3 outputs -->
+<path d='M 1684 167 L 1750 167 L 1795 212 L 1850 212' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+<circle cx='1850' cy='212' r='5' fill='url(#viaGrad)'/>
+<circle cx='1850' cy='212' r='7' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<path d='M 1684 187 L 1730 187 L 1775 232 L 1900 232' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.16' filter='url(#copperGlow)'/>
+<circle cx='1900' cy='232' r='4' fill='url(#viaGrad)'/>
+<circle cx='1900' cy='232' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- Power trace to U3 -->
+<path d='M 1536 207 L 972 207 L 952 227 L 952 480' stroke='#ff6b6b' stroke-width='3' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+
+<!-- ==================== BOTTOM LEFT IC (U4) ==================== -->
+<rect x='180' y='950' width='90' height='90' fill='#0d1a2d' stroke='#1a3352' stroke-width='1'/>
+<text x='225' y='1000' font-family='monospace' font-size='10' fill='#1a3352' text-anchor='middle'>U4</text>
+<circle cx='192' cy='962' r='4' fill='none' stroke='#1a3352' stroke-width='0.5'/>
+
+<!-- U4 pads -->
+<rect x='166' y='965' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='166' y='985' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='166' y='1005' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='268' y='965' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='268' y='985' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='268' y='1005' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- U4 input traces -->
+<path d='M 166 967 L 140 967 L 140 820 L 90 820 L 90 450' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+<path d='M 166 987 L 120 987 L 60 988' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+
+<!-- U4 output traces to U2 -->
+<path d='M 284 967 L 350 967 L 395 922 L 500 922 L 545 877 L 605 877 L 650 832 L 650 765' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+
+<path d='M 284 987 L 380 987 L 425 942 L 550 942 L 595 897 L 700 897' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+<circle cx='700' cy='897' r='4' fill='url(#viaGrad)'/>
+<circle cx='700' cy='897' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- ==================== BOTTOM RIGHT IC (U5) ==================== -->
+<rect x='1600' y='980' width='100' height='70' fill='#0d1a2d' stroke='#1a3352' stroke-width='1'/>
+<text x='1650' y='1020' font-family='monospace' font-size='10' fill='#1a3352' text-anchor='middle'>U5</text>
+<circle cx='1612' cy='992' r='4' fill='none' stroke='#1a3352' stroke-width='0.5'/>
+
+<!-- U5 pads -->
+<rect x='1586' y='995' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1586' y='1015' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1586' y='1035' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1698' y='995' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1698' y='1015' width='16' height='5' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- U5 input traces from U2 -->
+<path d='M 1100 745 L 1100 862 L 1145 907 L 1400 907 L 1445 952 L 1520 952 L 1565 1015 L 1586 1015' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2' filter='url(#copperGlow)'/>
+
+<!-- U5 outputs -->
+<path d='M 1714 997 L 1780 997 L 1825 952 L 1900 952' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.18' filter='url(#copperGlow)'/>
+<circle cx='1900' cy='952' r='4' fill='url(#viaGrad)'/>
+<circle cx='1900' cy='952' r='6' fill='none' stroke='#c9a227' stroke-width='1' opacity='0.5'/>
+
+<!-- ==================== RESISTOR NETWORKS ==================== -->
+<!-- R1 repositioned for cleaner routing -->
+<rect x='759' y='400' width='12' height='30' fill='#0d1a2d' stroke='#1a3352' stroke-width='0.5'/>
+<rect x='762' y='397' width='6' height='8' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<rect x='762' y='425' width='6' height='8' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<text x='755' y='418' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>R1</text>
+<path d='M 765 430 L 765 522' stroke='#00d4ff' stroke-width='1.5' fill='none' opacity='0.18'/>
+
+<!-- R2 -->
+<rect x='1120' y='536' width='30' height='12' fill='#0d1a2d' stroke='#1a3352' stroke-width='0.5'/>
+<rect x='1117' y='539' width='8' height='6' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<rect x='1145' y='539' width='8' height='6' fill='#b8860b' opacity='0.6' rx='0.5'/>
+<text x='1135' y='531' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>R2</text>
+<path d='M 1125 542 L 1075 542' stroke='#4ecdc4' stroke-width='1.5' fill='none' opacity='0.18'/>
+
+<!-- (Y1 removed) -->
+
+<!-- ==================== CONNECTOR J1 ==================== -->
+<rect x='1850' y='500' width='80' height='200' fill='#0d1a2d' stroke='#1a3352' stroke-width='1.5' rx='3'/>
+<text x='1890' y='490' font-family='monospace' font-size='8' fill='#1a3352' text-anchor='middle'>J1</text>
+
+<!-- Connector pins -->
+<rect x='1860' y='520' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1860' y='550' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1860' y='580' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1860' y='610' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1860' y='640' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1860' y='670' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1908' y='520' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1908' y='550' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1908' y='580' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1908' y='610' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1908' y='640' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+<rect x='1908' y='670' width='12' height='8' fill='#b8860b' opacity='0.7' rx='1'/>
+
+<!-- ==================== POWER DISTRIBUTION ==================== -->
+<!-- Main VCC rail (top) -->
+<path d='M 50 50 L 1950 50' stroke='#ff6b6b' stroke-width='4' fill='none' opacity='0.15' filter='url(#copperGlow)'/>
+<text x='1920' y='45' font-family='monospace' font-size='8' fill='#ff6b6b' opacity='0.4'>VCC</text>
+
+<!-- GND rail (bottom) -->
+<path d='M 50 1350 L 1950 1350' stroke='#00d4ff' stroke-width='4' fill='none' opacity='0.12' filter='url(#copperGlow)'/>
+<text x='1920' y='1345' font-family='monospace' font-size='8' fill='#00d4ff' opacity='0.4'>GND</text>
+
+<!-- Vertical power distribution -->
+<path d='M 60 50 L 60 987' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.2'/>
+<path d='M 90 450 L 90 820' stroke='#00d4ff' stroke-width='2' fill='none' opacity='0.1'/>
+<path d='M 1940 50 L 1940 1350' stroke='#ff6b6b' stroke-width='2' fill='none' opacity='0.1'/>
+
+<!-- ==================== TEST POINTS ==================== -->
+<circle cx='400' cy='500' r='6' fill='#b8860b' opacity='0.5'/>
+<circle cx='400' cy='500' r='4' fill='#0a1628'/>
+<text x='400' y='490' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>TP1</text>
+
+<circle cx='1400' cy='700' r='6' fill='#b8860b' opacity='0.5'/>
+<circle cx='1400' cy='700' r='4' fill='#0a1628'/>
+<text x='1400' y='690' font-family='monospace' font-size='6' fill='#1a3352' text-anchor='middle'>TP2</text>
+
+<!-- ==================== MOUNTING HOLES ==================== -->
+<circle cx='100' cy='1300' r='12' fill='none' stroke='#1a3352' stroke-width='1'/>
+<circle cx='100' cy='1300' r='8' fill='#0a1628' stroke='#b8860b' stroke-width='2' opacity='0.4'/>
+
+<circle cx='1900' cy='1300' r='12' fill='none' stroke='#1a3352' stroke-width='1'/>
+<circle cx='1900' cy='1300' r='8' fill='#0a1628' stroke='#b8860b' stroke-width='2' opacity='0.4'/>
+
+<circle cx='100' cy='100' r='12' fill='none' stroke='#1a3352' stroke-width='1'/>
+<circle cx='100' cy='100' r='8' fill='#0a1628' stroke='#b8860b' stroke-width='2' opacity='0.4'/>
+
+<circle cx='1900' cy='100' r='12' fill='none' stroke='#1a3352' stroke-width='1'/>
+<circle cx='1900' cy='100' r='8' fill='#0a1628' stroke='#b8860b' stroke-width='2' opacity='0.4'/>
+
+<!-- ==================== SILKSCREEN LABELS ==================== -->
+<text x='1000' y='1380' font-family='monospace' font-size='10' fill='#1a3352' text-anchor='middle' opacity='0.6'>REV 1.0</text>
+<text x='170' y='1380' font-family='monospace' font-size='8' fill='#1a3352' opacity='0.5'>© 2025</text>
+
+</svg>
