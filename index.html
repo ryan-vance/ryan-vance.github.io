@@ -657,6 +657,83 @@
             padding: 6rem 2rem;
         }
 
+        /* About Me Section */
+        .about-section {
+            background: var(--bg-secondary);
+            padding: 6rem 2rem;
+        }
+
+        .about-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-photo {
+            position: relative;
+        }
+
+        .about-photo img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text strong {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .about-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .about-photo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
+
         .contact-content {
             max-width: 800px;
             margin: 0 auto;
@@ -1182,6 +1259,38 @@
                     <span class="skill-tag">Mentorship</span>
                     <span class="skill-tag">Problem Solving</span>
                     <span class="skill-tag">Cross-functional Collaboration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="about-content-wrapper">
+            <div class="section-header">
+                <div class="section-label">Background</div>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-photo">
+                    <img src="headshot.jpg" alt="Ryan Vance">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Building Solutions That Scale</h3>
+                    
+                    <p>
+                        I'm a <strong>solution creator first, electrical engineer second</strong>. Growing up, my dad taught me to think three steps ahead—before starting Plan A, he already had Plans B and C mapped out. His solutions always worked because he was never caught without options. But they were physical: brilliant one-off fixes that couldn't scale. I wanted that same strategic instinct, but applied to solutions that could empower thousands. That's what led me to full-stack development—designing the circuit, writing the firmware, building the interface, analyzing the data. The best engineers always have another angle when one approach hits a wall.
+                    </p>
+                    
+                    <p>
+                        <strong>I don't wait for opportunities—I create them, with backup plans ready.</strong> My first internship came from a handwritten letter to a Corps of Engineers presenter. My senior design project exists because I reached out to six companies six months early, knowing most would say no but one might say yes. When I switched to EE at a small school with limited resources, I rebuilt the engineering club from scratch because accepting "no opportunities" wasn't an option.
+                    </p>
+                    
+                    <p>
+                        I was raised on <strong>"strive, not survive"</strong>—a mindset from competitive swimming and breaking relay records in high school. Years later, as a coach, I watched the swimmers I trained break those same records. At a school with eight students in my EE class, you either make your own luck or get stuck with the status quo. <strong>I choose to make my own.</strong>
+                    </p>
                 </div>
             </div>
         </div>
